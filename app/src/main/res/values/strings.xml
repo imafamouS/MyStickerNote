@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Sticker Note</string>
+    <string name="TEXT_ACTION_CLOSE">Đóng</string>
+    <string name="ABOUT_ME">Đào Hữu Lộc - 14110104 - Lớp chiều thứ 4</string>
+    <string name="TEXT_ADD_NOTE">Thêm mới note</string>
+    <string name="TEXT_TODAY">Hôm nay</string>
+    <string name="TEXT_SEACH_BY_COLOR">Lọc theo màu</string>
+    <string name="TEXT_SEACH_BY_DATE_CREATE">Lọc theo ngày lập</string>
+    <string name="TEXT_SEACH_BY_LAST_MODIFY">Lọc theo lần chỉnh sửa gần nhất</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+</resources>

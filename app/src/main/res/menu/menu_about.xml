@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_about"
+        android:icon="@drawable/icon_add_new"
+        android:orderInCategory="100"
+        android:showAsAction="collapseActionView"
+        android:title="Về tôi" />
+
+</menu>

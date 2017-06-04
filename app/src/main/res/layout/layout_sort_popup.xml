@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/parent_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:tabIndicatorColor="#009688"
+            app:tabSelectedTextColor="#009688"
+            app:tabTextAppearance="@style/MyCustomTabText">
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tab_where2go_top_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4.0dip"
+                android:paddingLeft="6.0dip"
+                android:paddingRight="8.0dip"
+                android:paddingTop="4.0dip"
+                android:text="Màu sắc"
+                android:textSize="15sp" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tab_what2do_top_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4.0dip"
+                android:paddingLeft="6.0dip"
+                android:paddingRight="8.0dip"
+                android:paddingTop="4.0dip"
+                android:text="Lọc"
+                android:textSize="15sp" />
+        </android.support.design.widget.TabLayout>
+    </LinearLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_below="@+id/parent_tab_layout" />
+
+
+</LinearLayout>

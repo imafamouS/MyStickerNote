@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_save"
+        android:icon="@drawable/icon_save"
+        android:showAsAction="always"
+        android:orderInCategory="100"
+        android:title="Lưu" />
+    <item
+        android:id="@+id/menu_change_color"
+        android:icon="@drawable/icon_change_color"
+        android:showAsAction="always"
+        android:orderInCategory="100"
+        android:title="Đổi màu ghi chú" />
+    <item
+        android:id="@+id/menu_make_new"
+        android:icon="@drawable/icon_reset"
+        android:showAsAction="always"
+        android:orderInCategory="100"
+        android:title="Làm mới" />
+</menu>

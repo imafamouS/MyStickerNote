@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_dark"
+    tools:context="com.infamous.fdsa.mysticker.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/add_place_top_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="45.0dip"
+        android:background="@color/color_main"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/back_button_add_place"
+            android:layout_width="50.0dip"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/list_item_selector"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:padding="10.0dip"
+                android:src="@drawable/icon_menu" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_view_name_app"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/back_button_add_place"
+            android:ellipsize="end"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:text="@string/app_name"
+            android:textColor="#000"
+            android:textSize="@dimen/text_size_big_title"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="45.0dip"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:id="@+id/image_view_add_note"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_item_selector"
+                android:gravity="center_vertical"
+                android:padding="4dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_add_new"
+                android:tint="#000" />
+
+            <ImageView
+                android:id="@+id/image_view_menu_about"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/text_view_done"
+                android:src="@drawable/icon_three_dot"
+                android:tint="#000" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/search_bar"
+        style="@style/bottom_bar"
+        android:layout_marginTop="45dp"
+        android:background="@color/color_white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/text_view_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="fdasfsdfdsafdsafsdafdsafasd" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/text_view_search"
+                android:src="@drawable/icon_down" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_bar"
+        android:divider="@color/color_main_dark"
+        android:dividerHeight="5dp"></ListView>
+
+
+</RelativeLayout>

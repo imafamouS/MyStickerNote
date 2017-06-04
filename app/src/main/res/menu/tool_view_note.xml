@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_check"
+        android:icon="@drawable/icon_check"
+        android:showAsAction="collapseActionView"
+        android:title="Check" />
+    <item
+        android:id="@+id/menu_add_note"
+        android:icon="@drawable/icon_add_new"
+        android:showAsAction="collapseActionView"
+        android:title="Thêm mới" />
+    <item
+        android:id="@+id/menu_edit_note"
+        android:icon="@drawable/icon_edit"
+        android:showAsAction="always"
+        android:title="Chỉnh sửa" />
+    <item
+        android:id="@+id/menu_delete_note"
+        android:icon="@drawable/icon_delete"
+        android:showAsAction="collapseActionView"
+        android:title="Xóa" />
+</menu>
