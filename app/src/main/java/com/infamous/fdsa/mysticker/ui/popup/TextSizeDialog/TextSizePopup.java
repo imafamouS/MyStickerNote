@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.infamous.fdsa.mysticker.R;
-import com.infamous.fdsa.mysticker.common.PublicData;
 import com.infamous.fdsa.mysticker.common.myenum.TypePopup;
 import com.infamous.fdsa.mysticker.common.myinterface.ICallBackFromPopup;
 
@@ -40,7 +39,7 @@ public class TextSizePopup extends DialogFragment implements AdapterView.OnItemC
         View v = inflater.inflate(R.layout.layout_text_size, container, false);
 
         listView = (ListView) v.findViewById(R.id.list_view);
-        adapter = new TextSizeAdapter(this.getContext(), PublicData.getDataTextSize());
+        //adapter = new TextSizeAdapter(this.getContext(), PublicData.getDataTextSize());
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
         return v;

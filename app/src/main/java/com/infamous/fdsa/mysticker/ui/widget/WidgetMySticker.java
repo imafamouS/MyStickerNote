@@ -44,7 +44,7 @@ public class WidgetMySticker extends AppWidgetProvider {
 
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
-
+    //Hàm tạo giao diện và dữ liệu cho widget
     static private RemoteViews createRemoteView(Context context, Note note, int appWidgetId) {
         // Construct the RemoteViews object
         TextUtils textUtils = TextUtils.getInstance(context);
@@ -83,7 +83,7 @@ public class WidgetMySticker extends AppWidgetProvider {
         views.setOnClickPendingIntent(R.id.layout_parent, pendingIntent);
         return views;
     }
-
+    //Hàm cập nhật toàn bộ giao diện và dữ liệu của widget trên màn hình
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         noteManager = NoteManager.getInstance(context);
@@ -97,7 +97,7 @@ public class WidgetMySticker extends AppWidgetProvider {
             updateAppWidget(context, appWidgetManager, appWidgetId, noteManager.findNoteById(noteid));
         }
     }
-
+    //Hàm nhận các intent từ activity
     @Override
     public void onReceive(Context context, Intent intent) {
 //        super.onReceive(context, intent);
@@ -112,7 +112,7 @@ public class WidgetMySticker extends AppWidgetProvider {
 
         }
     }
-
+    //Hàm thực hiện khi xóa widget (xóa widgetnote trong csdl)
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {
         super.onDeleted(context, appWidgetIds);

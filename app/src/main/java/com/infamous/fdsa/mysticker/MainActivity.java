@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
         showStartData();
     }
-
+    //hàm khởi tạo
     private void initView() {
         image_view_menu_about = (ImageView) findViewById(R.id.image_view_menu_about);
         image_view_add_note = (ImageView) findViewById(R.id.image_view_add_note);
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         linear_layout_footer.setOnClickListener(this);
         noteManager = NoteManager.getInstance(this.getApplicationContext());
     }
-
+    //Hàm hiện dữ liệu ban đầu
     private void showStartData() {
         updateStringSearch( getString(R.string.TEXT_SEACH_BY_DATE_CREATE));
         searchByType(TypePopup.POPUP_SEACH_DATE, 0);
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             searchByType(type, position);
         }
     }
-
+    //Khi click vào item trên listview
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (parent.getId() == R.id.list_view) {
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
-
+    //Hiện activity tương ứng với loại note (xem nội dung note)
     private void openActivityViewNote(Note note) {
         String noteID = note.getId();
         if (note.getType() == Note.NORMAL) {
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
-
+    //Hàm lọc note theo loại
     private void searchByType(TypePopup type, int position) {
         String typeSearch = "";
         if (type == TypePopup.POPUP_SEARCH_COLOR) {

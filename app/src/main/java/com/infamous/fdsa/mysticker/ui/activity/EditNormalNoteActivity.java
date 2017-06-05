@@ -95,7 +95,7 @@ public class EditNormalNoteActivity extends BaseSlideActivity implements View.On
             showDataNote();
         }
     }
-
+    //Khởi tạo view
     private void initView() {
         linear_layout_top_bar_edit_note = (LinearLayout) findViewById(R.id.linear_layout_top_bar_edit_note);
         edit_text_title_note = (EditText) findViewById(R.id.edit_text_title_note);
@@ -128,7 +128,7 @@ public class EditNormalNoteActivity extends BaseSlideActivity implements View.On
         linear_layout_size.setOnClickListener(this);
         linear_layout_italic.setOnClickListener(this);
     }
-
+    //Hiện dữ liệu trống
     private void showBlankData() {
         MyColor myColor = MyColor.getColorByIndex(3);
         linear_layout_date_create.setBackgroundColor(Color.parseColor(myColor.getColor3()));
@@ -138,7 +138,7 @@ public class EditNormalNoteActivity extends BaseSlideActivity implements View.On
         text_view_date_create.setText(textUtils.getCurrentTime());
         mainColor = myColor;
     }
-
+    //Hiện dữ liệu cua3 note
     private void showDataNote() {
         edit_text_title_note.setText(currentNote.getTitle());
         text_view_date_create.setText(textUtils.formatStringDate(currentNote.getDateCreate()));
@@ -147,7 +147,7 @@ public class EditNormalNoteActivity extends BaseSlideActivity implements View.On
         changeColorTheme(myColor1);
         mainColor = myColor1;
     }
-
+    //Đổi màu note
     private void changeColorTheme(MyColor color) {
         linear_layout_date_create.setBackgroundColor(Color.parseColor(color.getColor3()));
 
@@ -156,6 +156,7 @@ public class EditNormalNoteActivity extends BaseSlideActivity implements View.On
 
     @Override
     public void callBackFromPopup(TypePopup type, int position) {
+        //Hàm xảy ra khi thực hiện xong việc chọn màu note
         if (type == TypePopup.POPUP_CHANGE_COLOR) {
             MyColor myColor = MyColor.getColorByIndex(position);
             changeColorTheme(myColor);
@@ -165,13 +166,13 @@ public class EditNormalNoteActivity extends BaseSlideActivity implements View.On
             Toast.makeText(this, position + "", Toast.LENGTH_SHORT).show();
         }
     }
-
+    //Reset giao diện
     private void reset() {
         edit_text_title_note.setText("");
         changeColorTheme(MyColor.COLOR_3);
         main_edit_text.setText("");
     }
-
+    //Nhấn Save
     private void onSave(Note note) {
         boolean flag = false;
         String actionWidget;
@@ -219,7 +220,7 @@ public class EditNormalNoteActivity extends BaseSlideActivity implements View.On
             Toast.makeText(this, "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
         }
     }
-
+    //Nhấn in đậm
     private void onBold() {
         int selectionStart = main_edit_text.getSelectionStart();
         int selectionEnd = main_edit_text.getSelectionEnd();
@@ -255,7 +256,7 @@ public class EditNormalNoteActivity extends BaseSlideActivity implements View.On
         } else {
         }
     }
-
+    //In nghiêng
     private void onItalic() {
         int selectionStart = main_edit_text.getSelectionStart();
         int selectionEnd = main_edit_text.getSelectionEnd();
@@ -291,7 +292,7 @@ public class EditNormalNoteActivity extends BaseSlideActivity implements View.On
         } else {
         }
     }
-
+    //Khi nhấn phím back
     @Override
     public void onBackPressed() {
         if (isNeedSave) {
@@ -338,41 +339,6 @@ public class EditNormalNoteActivity extends BaseSlideActivity implements View.On
                 break;
         }
     }
-   /* private void onSize(){
-        int selectionStart = main_edit_text.getSelectionStart();
-        int selectionEnd = main_edit_text.getSelectionEnd();
-
-        if (selectionStart > selectionEnd) {
-            int temp = selectionEnd;
-            selectionEnd = selectionStart;
-            selectionStart = temp;
-        }
-
-
-        if (selectionEnd > selectionStart) {
-
-            Spannable str = main_edit_text.getText();
-            boolean exists = false;
-            StyleSpan[] styleSpans;
-            styleSpans = str.getSpans(selectionStart, selectionEnd, StyleSpan.class);
-
-            for (int i = 0; i < styleSpans.length; i++) {
-                if (styleSpans[i].getStyle() == Typeface.) {
-                    str.removeSpan(styleSpans[i]);
-                    exists = true;
-                }
-            }
-            if (!exists) {
-                str.setSpan(new StyleSpan(Typeface.ITALIC), selectionStart, selectionEnd,
-                        Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
-                linear_layout_italic.setBackgroundResource(R.color.color_main_dark);
-            } else {
-                linear_layout_italic.setBackgroundResource(R.drawable.border);
-            }
-            main_edit_text.setSelection(selectionStart, selectionEnd);
-        } else {
-        }
-    }*/
 
     class CallBackWhenClickToolMenu implements IMenuToolClick {
         @Override

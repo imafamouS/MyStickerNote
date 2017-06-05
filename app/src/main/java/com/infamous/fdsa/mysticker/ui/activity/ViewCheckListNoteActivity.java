@@ -67,7 +67,7 @@ public class ViewCheckListNoteActivity extends BaseSlideActivity implements View
         }
 
     }
-
+    //Hàm khởi tạo
     private void initView() {
         linear_layout_top_bar_view_note = (LinearLayout) findViewById(R.id.linear_layout_top_bar_view_note);
         text_view_title_note = (TextView) findViewById(R.id.text_view_title_note);
@@ -85,7 +85,7 @@ public class ViewCheckListNoteActivity extends BaseSlideActivity implements View
         image_view_edit_note.setOnClickListener(this);
         image_view_tool.setOnClickListener(this);
     }
-
+    //Hiện dữ liệu note
     private void showData() {
 
         MyColor myColor = MyColor.getColorByHex(currentNote.getColor());
@@ -114,14 +114,16 @@ public class ViewCheckListNoteActivity extends BaseSlideActivity implements View
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.image_view_edit_note:
+                //Khi nhấn nút edit
                 editNote();
                 break;
             case R.id.iamge_view_tool:
+                //Khi nhấn vào bộ công cụ (dấu 3.)
                 menuPopup.show();
                 break;
         }
     }
-
+    //Khi nhấn check note
     private void checkNote() {
         if (menuPopup.isChecked()) {
             menuPopup.setChecked(false);
@@ -156,7 +158,7 @@ public class ViewCheckListNoteActivity extends BaseSlideActivity implements View
             isNeedSaved = false;
         }
     }
-
+    //Xóa note
     private void deleteNote(Note item) {
         if (noteManager.deleteNote(item) > 0) {
             Toast.makeText(this, "Đã xóa note thành công", Toast.LENGTH_SHORT).show();
@@ -166,19 +168,19 @@ public class ViewCheckListNoteActivity extends BaseSlideActivity implements View
             Toast.makeText(this, "Đã xóa note thất bại", Toast.LENGTH_SHORT).show();
         }
     }
-
+    //Thêm mới
     private void addNew() {
         Intent intent = new Intent(ViewCheckListNoteActivity.this, EditCheckListNoteActivity.class);
         startActivityForResult(intent, AppConfig.RequestCode.REQUEST_CODE_ADD_CHECKLIST_NOTE);
     }
-
+    //Chỉnh sửa note
     private void editNote() {
         Intent intent = new Intent(ViewCheckListNoteActivity.this, EditCheckListNoteActivity.class);
         intent.putExtra("noteid", currentNote.getId());
         intent.putExtra("isdonelist", viewCheckListAdapter.getAllItemDone());
         startActivityForResult(intent, AppConfig.RequestCode.REQUEST_CODE_EDIT_CHECKLIST_NOTE);
     }
-
+    //Hiện popup thông báo xóa
     private void showAlertDelete(String mess) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder
@@ -198,7 +200,7 @@ public class ViewCheckListNoteActivity extends BaseSlideActivity implements View
 
         alertDialogBuilder.show();
     }
-
+    //lưu note
     private void onSave(Note note) {
         ((CheckListNote) note).setItemCheckLists(this.viewCheckListAdapter.data);
         if (this.viewCheckListAdapter.isAllDone()) {

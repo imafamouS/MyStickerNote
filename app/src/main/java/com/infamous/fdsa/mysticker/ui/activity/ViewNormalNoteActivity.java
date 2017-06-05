@@ -63,6 +63,7 @@ public class ViewNormalNoteActivity extends BaseSlideActivity implements View.On
         showData();
     }
 
+    //Hàm khởi tạo
     private void initView() {
         linear_layout_top_bar_view_note = (LinearLayout) findViewById(R.id.linear_layout_top_bar_view_note);
         text_view_title_note = (TextView) findViewById(R.id.text_view_title_note);
@@ -83,6 +84,7 @@ public class ViewNormalNoteActivity extends BaseSlideActivity implements View.On
 
     }
 
+    //Hàm hiện dữ liệu
     private void showData() {
         String title = noteItem.getTitle();
         String dateCreate = noteItem.getDateCreate();
@@ -110,6 +112,7 @@ public class ViewNormalNoteActivity extends BaseSlideActivity implements View.On
         }
     }
 
+    //Khi nhấn note đã hoàn thành hay chưa
     private void checkNote() {
         if (menuPopup.isChecked()) {
             menuPopup.setChecked(false);
@@ -132,6 +135,7 @@ public class ViewNormalNoteActivity extends BaseSlideActivity implements View.On
 
     }
 
+    //Xóa note
     private void deleteNote(Note item) {
         if (noteManager.deleteNote(item) > 0) {
             Toast.makeText(this, "Đã xóa note thành công", Toast.LENGTH_SHORT).show();
@@ -142,17 +146,20 @@ public class ViewNormalNoteActivity extends BaseSlideActivity implements View.On
         }
     }
 
+    //Thêm mới
     private void addNew() {
         Intent intent = new Intent(ViewNormalNoteActivity.this, EditNormalNoteActivity.class);
-        startActivityForResult(intent,AppConfig.RequestCode.REQUEST_CODE_ADD_NORMAL_NOTE);
+        startActivityForResult(intent, AppConfig.RequestCode.REQUEST_CODE_ADD_NORMAL_NOTE);
     }
 
+    //Chỉnh sửa note
     private void editNote() {
         Intent intent = new Intent(ViewNormalNoteActivity.this, EditNormalNoteActivity.class);
         intent.putExtra("noteid", noteItem.getId());
         startActivityForResult(intent, AppConfig.RequestCode.REQUEST_CODE_EDIT_NORMAL_NOTE);
     }
 
+    //Hiẹn6 thông báo xóa
     private void showAlertDelete(String mess) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder
@@ -173,8 +180,12 @@ public class ViewNormalNoteActivity extends BaseSlideActivity implements View.On
         alertDialogBuilder.show();
     }
 
+    //Khi nhấn nút back
     @Override
     public void onBackPressed() {
+        Intent intent = new Intent(WidgetMySticker.ACTION_UPDATE);
+        intent.putExtra("noteid", noteItem.getId());
+        getApplicationContext().sendBroadcast(intent);
         setResult(AppConfig.ResultCode.RESULT_CODE_VIEW_NOTE, new Intent().putExtra("reload", true));
         finish();
     }

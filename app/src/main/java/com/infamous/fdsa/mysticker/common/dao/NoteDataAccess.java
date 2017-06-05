@@ -417,7 +417,7 @@ public class NoteDataAccess extends BaseDataAccess {
         public void close() {
             super.close();
         }
-
+        //Thêm mới note bình thường
         public long insert(NormalNote note) {
             String query = "INSERT INTO " + TABLE_NAME + "(id,content)" + " VALUES(?,?)";
             this.open();
@@ -431,7 +431,7 @@ public class NoteDataAccess extends BaseDataAccess {
             }
             return statement.executeInsert();
         }
-
+        //Cập nhật note
         public long update(NormalNote note) {
             String query = "UPDATE " + TABLE_NAME + " SET content=? WHERE id=?";
             this.open();
@@ -445,7 +445,7 @@ public class NoteDataAccess extends BaseDataAccess {
             }
             return statement.executeUpdateDelete();
         }
-
+        //Lấy nội dung note theo id note
         public String getContent(String id) {
             String result = "";
             String query = "SELECT " + COLUMN_CONTENT + " from " + TABLE_NAME + " WHERE " + COLUMN_ID + " = '" + id + "'";
@@ -485,7 +485,7 @@ public class NoteDataAccess extends BaseDataAccess {
         public void close() {
             super.close();
         }
-
+        //Thêm nội dung checklist
         public long insert(CheckListNote note) {
             String query = "INSERT OR REPLACE INTO " + TABLE_NAME + "(id,content,done)" + " VALUES(?,?,?)";
             this.open();
@@ -506,7 +506,7 @@ public class NoteDataAccess extends BaseDataAccess {
             }
             return 1;
         }
-
+        //Cập nhật nội dung checklist
         public long update(CheckListNote note) {
             String query = " insert into checklist(id,content,done) values(?,?,?)";
 
@@ -536,7 +536,7 @@ public class NoteDataAccess extends BaseDataAccess {
             }
             return 1;
         }
-
+        //Xóa nội dung checklist
         public long delete(CheckListNote note) {
             String delete = "delete from checklist where id=?";
             SQLiteStatement sqLiteStatementDelte = this.database.compileStatement(delete);
@@ -549,7 +549,7 @@ public class NoteDataAccess extends BaseDataAccess {
 
             return sqLiteStatementDelte.executeUpdateDelete();
         }
-
+        //Lấy nội dung checklist
         public ArrayList<ItemCheckList> getContent(String id) {
             ArrayList<ItemCheckList> list = new ArrayList<>();
             String result = "";

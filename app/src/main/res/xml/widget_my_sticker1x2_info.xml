@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialKeyguardLayout="@layout/layout_widget_2x2"
+    android:configure="com.infamous.fdsa.mysticker.ui.widget.ChooseNoteWidgetConfiguration"
+    android:initialLayout="@layout/layout_widget_2x2"
+    android:minHeight="40dp"
+    android:minWidth="40dp"
+    android:previewImage="@drawable/icon_laucher"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="86400000"
+    android:widgetCategory="home_screen"></appwidget-provider>

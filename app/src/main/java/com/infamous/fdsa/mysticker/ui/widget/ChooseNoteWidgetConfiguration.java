@@ -52,6 +52,7 @@ public class ChooseNoteWidgetConfiguration extends AppCompatActivity implements 
     TypePopup currentType;
     private int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
     private int mResult = RESULT_CANCELED;
+
     public ChooseNoteWidgetConfiguration() {
         super();
     }

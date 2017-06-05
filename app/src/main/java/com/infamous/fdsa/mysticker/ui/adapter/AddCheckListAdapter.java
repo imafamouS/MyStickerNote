@@ -30,7 +30,7 @@ public class AddCheckListAdapter extends BaseAdapter {
         this.data = data;
         this.clickOnCheckListItem = clickOnCheckListItem;
     }
-
+    //Hàm thêm dữ liệu vào adapter
     public void addItem(ItemCheckList itemCheckList) {
         for (int i = 0; i < data.size(); i++) {
             if (this.data.get(i).getContent().equalsIgnoreCase(itemCheckList.getContent())) {
@@ -39,7 +39,7 @@ public class AddCheckListAdapter extends BaseAdapter {
         }
         this.data.add(itemCheckList);
     }
-
+    //Hàm xóa dữ liệu của adapter
     public void deleteItem(ItemCheckList itemCheckList) {
         this.data.remove(itemCheckList);
     }
@@ -70,6 +70,7 @@ public class AddCheckListAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+        holder.position=position;
         ItemCheckList item = this.data.get(position);
         holder.text_view_title.setText(item.getContent());
         return convertView;

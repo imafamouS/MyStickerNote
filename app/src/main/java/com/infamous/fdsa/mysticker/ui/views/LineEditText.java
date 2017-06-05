@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 public class LineEditText extends android.support.v7.widget.AppCompatEditText {
     private Rect mRect;
     private Paint mPaint;
-    // we need this constructor for LayoutInflater
+
     public LineEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         mRect = new Rect();

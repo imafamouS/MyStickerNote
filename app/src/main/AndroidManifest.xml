@@ -20,21 +20,21 @@
         <receiver android:name=".ui.widget.WidgetMySticker">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.infamous.fdsa.ui.widget.WidgetMySticker.ACTION_OPEN_ACTIVITY"></action>
-                <action android:name="com.infamous.fdsa.ui.widget.WidgetMySticker.ACTION_UPDATE"></action>
-                <action android:name="com.infamous.fdsa.ui.widget.WidgetMySticker.ACTION_CREATE_NOTE"></action>
+                <action android:name="com.infamous.fdsa.ui.widget.WidgetMySticker.ACTION_OPEN_ACTIVITY" />
+                <action android:name="com.infamous.fdsa.ui.widget.WidgetMySticker.ACTION_UPDATE" />
+                <action android:name="com.infamous.fdsa.ui.widget.WidgetMySticker.ACTION_CREATE_NOTE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_my_sticker_info" />
+                android:resource="@xml/widget_my_sticker_2x2" />
         </receiver>
 
-        <activity android:name=".ui.activity.BaseSlideActivity" ></activity>
-        <activity android:name=".ui.activity.ViewCheckListNoteActivity" ></activity>
-        <activity android:name=".ui.activity.ViewNormalNoteActivity" ></activity>
-        <activity android:name=".ui.activity.EditNormalNoteActivity" ></activity>
-        <activity android:name=".ui.activity.EditCheckListNoteActivity" ></activity>
+        <activity android:name=".ui.activity.BaseSlideActivity" />
+        <activity android:name=".ui.activity.ViewCheckListNoteActivity" />
+        <activity android:name=".ui.activity.ViewNormalNoteActivity" />
+        <activity android:name=".ui.activity.EditNormalNoteActivity" />
+        <activity android:name=".ui.activity.EditCheckListNoteActivity" />
         <activity
             android:name=".ui.widget.ChooseNoteWidgetConfiguration"
             android:noHistory="true"
@@ -43,6 +43,16 @@
                 <action android:name="com.infamous.fdsa.ui.widget.WidgetMySticker.ChooseNoteWidgetConfiguration.ACTION_CREATE_NEW" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".ui.widget.WidgetMySticker1x2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_my_sticker1x2_info" />
+        </receiver>
     </application>
 
 </manifest>

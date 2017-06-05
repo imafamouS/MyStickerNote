@@ -28,7 +28,7 @@ public enum MyColor {
         this.hex3 = hexColor3;
         this.hex4 = hexColor4;
     }
-
+    //Tìm màu theo vị trí
     public static MyColor getColorByIndex(int index) {
         switch (index) {
             case 1:
@@ -57,7 +57,7 @@ public enum MyColor {
 
         }
     }
-
+    //Tìm màu theo mã màu
     public static MyColor getColorByHex(String hex) {
         MyColor mycolor = null;
         for (MyColor i : MyColor.values()) {

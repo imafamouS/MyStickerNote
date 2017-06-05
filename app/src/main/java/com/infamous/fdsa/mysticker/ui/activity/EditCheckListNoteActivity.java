@@ -7,7 +7,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -96,24 +95,19 @@ public class EditCheckListNoteActivity extends BaseSlideActivity implements View
             showDataBlank();
         } else {
             currentNote = noteManager.findNoteById(noteID);
-            Log.d("2", currentNote.toString());
             showDatanote();
-
 
             if (contentID != null && !contentID.equals("") && !contentID.equals("null")) {
                 editItemCheckListPopup(addCheckListAdapter.data.get(Integer.parseInt(contentID)).getContent(), Integer.parseInt(contentID));
             }
-
-
         }
         if(isDoneList!=null && isDoneList.size()>=0){
             for(int i=0;i<isDoneList.size();i++){
                 addCheckListAdapter.data.get(isDoneList.get(i)).setDone(true);
             }
         }
-
     }
-
+    //Hàm khởi tạo view
     private void initView() {
 
         linear_layout_top_bar_edit_note = (LinearLayout) findViewById(R.id.linear_layout_top_bar_edit_note);
@@ -148,7 +142,7 @@ public class EditCheckListNoteActivity extends BaseSlideActivity implements View
         footer.setOnClickListener(this);
 
     }
-
+    //Hiện dữ liệu của note
     private void showDatanote() {
         addCheckListAdapter = new AddCheckListAdapter(this.getApplicationContext(), ((CheckListNote) currentNote).getItemCheckLists(), new OnItemclick());
         list_view.setAdapter(addCheckListAdapter);
@@ -164,7 +158,7 @@ public class EditCheckListNoteActivity extends BaseSlideActivity implements View
         mainColor = myColor;
 
     }
-
+    //Hiện dữ liệu trống
     private void showDataBlank() {
         text_view_date_create.setText(textUtils.getCurrentTime());
         nodata = new NodataDataCheckListAdapter(this.getApplicationContext());
@@ -177,7 +171,7 @@ public class EditCheckListNoteActivity extends BaseSlideActivity implements View
         list_view.setAdapter(addCheckListAdapter);
         mainColor = myColor;
     }
-
+    //Hàm xử lí sự kiện khi nhấn thay đổi màu note
     @Override
     public void callBackFromPopup(TypePopup type, int position) {
         if (type == TypePopup.POPUP_CHANGE_COLOR) {
@@ -189,7 +183,7 @@ public class EditCheckListNoteActivity extends BaseSlideActivity implements View
             mainColor = myColor;
         }
     }
-
+    //Thay đổi màu note
     private void changeColorTheme(MyColor color) {
         linear_layout_date_create.setBackgroundColor(Color.parseColor(color.getColor3()));
 
@@ -218,15 +212,15 @@ public class EditCheckListNoteActivity extends BaseSlideActivity implements View
                 break;
         }
     }
-
+    //Thêm vào vị trí đầu tiên  của nội dung checklist
     private void addFirst() {
         addCheckListPopup(true);
     }
-
+    //Thêm vào vị trí cuối cùng của nội dung checklist
     private void addEnd() {
         addCheckListPopup(false);
     }
-
+    //Reset note
     private void onReset() {
         edit_text_title_note.setText("");
         changeColorTheme(COLOR_3);
@@ -235,7 +229,7 @@ public class EditCheckListNoteActivity extends BaseSlideActivity implements View
         addCheckListAdapter.notifyDataSetChanged();
 
     }
-
+    //Hiện popup thêm mới nội dung checklist
     private void addCheckListPopup(final boolean isAddFirst) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(EditCheckListNoteActivity.this);
         View v = LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_popup_add_checklist, null);
@@ -281,7 +275,7 @@ public class EditCheckListNoteActivity extends BaseSlideActivity implements View
                 });
         builder.show();
     }
-
+    //Hiện popup chỉnh sửa
     private void editItemCheckListPopup(String content, final int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(EditCheckListNoteActivity.this);
         View v = LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_popup_add_checklist, null);
@@ -306,7 +300,7 @@ public class EditCheckListNoteActivity extends BaseSlideActivity implements View
                 });
         builder.show();
     }
-
+    //Nhấn save
     private void onSave(Note note) {
         boolean flag = false;
         if (!isAddNewNote) {
@@ -370,11 +364,12 @@ public class EditCheckListNoteActivity extends BaseSlideActivity implements View
     }
 
     class OnItemclick implements IClickOnCheckListItem {
+        //
         @Override
         public void onClickParent(int position) {
             editItemCheckListPopup(addCheckListAdapter.data.get(position).getContent(), position);
         }
-
+        //Nhấn vào nut delete (x)
         @Override
         public void onClickEdit(int position) {
             addCheckListAdapter.data.remove(position);

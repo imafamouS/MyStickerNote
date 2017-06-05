@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 
 public class PublicData {
-
+    //Dữ liệu cho popup tạo mới
     public static ArrayList<PopupItem> getDataAddNewNote() {
         ArrayList<PopupItem> list = new ArrayList<>();
 
@@ -20,7 +20,7 @@ public class PublicData {
 
         return list;
     }
-
+    //Dữ liệu cho popup tìm kiếm theo thời gian
     public static ArrayList<PopupItem> getDataSearchDatePopup() {
         ArrayList<PopupItem> list = new ArrayList<>();
 
@@ -29,7 +29,7 @@ public class PublicData {
 
         return list;
     }
-
+    //Dữ liệu cho popup tìm kiếm theo màu
     public static ArrayList<PopupItem> getDataSearchColorPopup() {
         ArrayList<PopupItem> list = new ArrayList<>();
 
@@ -47,7 +47,7 @@ public class PublicData {
 
         return list;
     }
-
+    //Dữ liệu cho popup chọn màu note
     public static ArrayList<PopupItem> getDataGridViewColor() {
         ArrayList<PopupItem> list = new ArrayList<>();
 
@@ -61,19 +61,6 @@ public class PublicData {
         list.add(new PopupItem("8", "Màu 8", R.drawable.icon_color_8));
         list.add(new PopupItem("9", "Màu 9", R.drawable.icon_color_9));
 
-
-        return list;
-    }
-
-    public static ArrayList<PopupItem> getDataTextSize() {
-        ArrayList<PopupItem> list = new ArrayList<>();
-
-        for (int i = 1; i <= 100; i++) {
-            PopupItem item = new PopupItem(i + "", i + "", 0);
-            item.setIsSelected(false);
-
-            list.add(item);
-        }
 
         return list;
     }

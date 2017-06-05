@@ -32,7 +32,7 @@ public class TextUtils {
         }
         return ins;
     }
-
+    //So sánh 2 ngày
     public int compare2DateFromString(String date1, String date2) {
         Calendar calendar1 = null;
         Calendar calendar2 = null;
@@ -49,7 +49,7 @@ public class TextUtils {
         }
         return calendar1.compareTo(calendar2);
     }
-
+    //Chuyển dạng ngày tháng năm
     public String formatStringDate(String date) {
         String result = "";
         try {
@@ -77,7 +77,7 @@ public class TextUtils {
         }
         return result;
     }
-
+    //Lấy ngày giờ hiện tại
     public String getCurrentTime() {
         String result = "";
         Calendar calendar;
@@ -87,11 +87,11 @@ public class TextUtils {
                 + "/" + calendar.get(Calendar.YEAR) + " " + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND);
         return result;
     }
-
+    //Hiện tiêu đề note
     public String formatTitleShowing(String title, int limitLength) {
         return title.trim().length() <= limitLength ? title.trim() : title.trim().substring(0, limitLength) + "...";
     }
-
+    //Xây dựng chuỗi có ngạch ngang ở giữa (delete)
     public String buildDelelteString(String input, int start, int end) {
         return "<del>" + input.substring(start, end) + "</del>";
     }
@@ -99,7 +99,7 @@ public class TextUtils {
     public String buildDeleteString(String input) {
         return buildDelelteString(input, 0, input.length());
     }
-
+    //xây dựng chuổi im đậm
     public String buildBoldString(String input, int start, int end) {
         return "<b>" + input.substring(start, end) + "</b>";
     }
@@ -107,7 +107,7 @@ public class TextUtils {
     public String buildBoldString(String input) {
         return buildBoldString(input, 0, input.length());
     }
-
+    //Xây dựng chuổi với màu
     public String buildFontColor(String input, String color) {
         return "<font color='" + color + "'>" + input + "</font>";
     }
