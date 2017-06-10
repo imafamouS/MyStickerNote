@@ -44,6 +44,8 @@ public class ViewNormalNoteActivity extends BaseSlideActivity implements View.On
     AddNewNotePopup addNewNotePopup;
     TextUtils textUtils;
 
+    ImageView image_view_back;
+
     public ViewNormalNoteActivity() {
         super();
     }
@@ -66,6 +68,7 @@ public class ViewNormalNoteActivity extends BaseSlideActivity implements View.On
     //Hàm khởi tạo
     private void initView() {
         linear_layout_top_bar_view_note = (LinearLayout) findViewById(R.id.linear_layout_top_bar_view_note);
+        image_view_back=(ImageView)findViewById(R.id.image_view_back);
         text_view_title_note = (TextView) findViewById(R.id.text_view_title_note);
         image_view_edit_note = (ImageView) findViewById(R.id.image_view_edit_note);
         image_view_tool = (ImageView) findViewById(R.id.iamge_view_tool);
@@ -81,6 +84,7 @@ public class ViewNormalNoteActivity extends BaseSlideActivity implements View.On
 
         image_view_edit_note.setOnClickListener(this);
         image_view_tool.setOnClickListener(this);
+        image_view_back.setOnClickListener(this);
 
     }
 
@@ -128,9 +132,7 @@ public class ViewNormalNoteActivity extends BaseSlideActivity implements View.On
         }
         noteItem.setLastMotify(textUtils.getCurrentTime());
         if (noteManager.updateNote(noteItem) > 0) {
-            Intent intent = new Intent(WidgetMySticker.ACTION_UPDATE);
-            intent.putExtra("noteid", noteItem.getId());
-            getApplicationContext().sendBroadcast(intent);
+
         }
 
     }
@@ -183,10 +185,11 @@ public class ViewNormalNoteActivity extends BaseSlideActivity implements View.On
     //Khi nhấn nút back
     @Override
     public void onBackPressed() {
+
+        setResult(AppConfig.ResultCode.RESULT_CODE_VIEW_NOTE, new Intent().putExtra("reload", true));
         Intent intent = new Intent(WidgetMySticker.ACTION_UPDATE);
         intent.putExtra("noteid", noteItem.getId());
         getApplicationContext().sendBroadcast(intent);
-        setResult(AppConfig.ResultCode.RESULT_CODE_VIEW_NOTE, new Intent().putExtra("reload", true));
         finish();
     }
 
@@ -198,6 +201,9 @@ public class ViewNormalNoteActivity extends BaseSlideActivity implements View.On
                 break;
             case R.id.iamge_view_tool:
                 menuPopup.show();
+                break;
+            case R.id.image_view_back:
+                onBackPressed();
                 break;
         }
     }

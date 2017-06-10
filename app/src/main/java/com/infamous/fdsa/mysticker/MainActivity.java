@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         list_view = (ListView) findViewById(R.id.list_view);
 
-        noDataAdapter = new NodataAdapter(this.getApplicationContext());
+        noDataAdapter = new NodataAdapter(this.getApplicationContext(),true);
         footerListView = View.inflate(this.getApplicationContext(), R.layout.layout_footer_main_list_view, null);
         linear_layout_footer = (LinearLayout) footerListView.findViewById(R.id.linear_layout_footer);
         list_view.setAdapter(noDataAdapter);

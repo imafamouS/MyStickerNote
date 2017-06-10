@@ -47,6 +47,8 @@ public class ViewCheckListNoteActivity extends BaseSlideActivity implements View
     TextView text_view_date_create;
     boolean isNeedSaved = true;
 
+    ImageView image_view_back;
+
     public ViewCheckListNoteActivity() {
         super();
     }
@@ -70,6 +72,7 @@ public class ViewCheckListNoteActivity extends BaseSlideActivity implements View
     //Hàm khởi tạo
     private void initView() {
         linear_layout_top_bar_view_note = (LinearLayout) findViewById(R.id.linear_layout_top_bar_view_note);
+        image_view_back=(ImageView)findViewById(R.id.image_view_back);
         text_view_title_note = (TextView) findViewById(R.id.text_view_title_note);
         image_view_edit_note = (ImageView) findViewById(R.id.image_view_edit_note);
         image_view_tool = (ImageView) findViewById(R.id.iamge_view_tool);
@@ -84,6 +87,7 @@ public class ViewCheckListNoteActivity extends BaseSlideActivity implements View
 
         image_view_edit_note.setOnClickListener(this);
         image_view_tool.setOnClickListener(this);
+        image_view_back.setOnClickListener(this);
     }
     //Hiện dữ liệu note
     private void showData() {
@@ -121,6 +125,10 @@ public class ViewCheckListNoteActivity extends BaseSlideActivity implements View
                 //Khi nhấn vào bộ công cụ (dấu 3.)
                 menuPopup.show();
                 break;
+            case R.id.image_view_back:
+                onBackPressed();
+                break;
+
         }
     }
     //Khi nhấn check note
@@ -224,16 +232,18 @@ public class ViewCheckListNoteActivity extends BaseSlideActivity implements View
             showData();
         }
     }
-
+    //Save note khi nhấn phím back
     @Override
     public void onBackPressed() {
         if (isNeedSaved) {
             onSave(currentNote);
-            Intent intent = new Intent(WidgetMySticker.ACTION_UPDATE);
-            intent.putExtra("noteid", currentNote.getId());
-            getApplicationContext().sendBroadcast(intent);
         }
         setResult(AppConfig.ResultCode.RESULT_CODE_VIEW_NOTE, new Intent().putExtra("reload", true));
+
+        Intent intent = new Intent(WidgetMySticker.ACTION_UPDATE);
+        intent.putExtra("noteid", currentNote.getId());
+        getApplicationContext().sendBroadcast(intent);
+
         finish();
     }
 

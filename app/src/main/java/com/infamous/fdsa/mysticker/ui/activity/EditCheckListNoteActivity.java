@@ -344,6 +344,7 @@ public class EditCheckListNoteActivity extends BaseSlideActivity implements View
 
     @Override
     public void onBackPressed() {
+        //Save khi nhấn phím back
         if (isNeedSave) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Bạn có muốn lưu không ?")

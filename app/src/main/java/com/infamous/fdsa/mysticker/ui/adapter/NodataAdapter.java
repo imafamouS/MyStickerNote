@@ -17,11 +17,13 @@ import com.infamous.fdsa.mysticker.R;
 public class NodataAdapter extends BaseAdapter {
 
     private Context context;
+    private boolean flag;
 
     //Hàm khởi tạo
-    public NodataAdapter(Context context) {
+    public NodataAdapter(Context context,boolean flag) {
         super();
         this.context = context;
+        this.flag=flag;
     }
 
     /***
@@ -87,7 +89,12 @@ public class NodataAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.image_view_nodata.setVisibility(View.VISIBLE);
-        holder.text_view_no_data.setVisibility(View.VISIBLE);
+        if(flag){
+            holder.text_view_no_data.setVisibility(View.VISIBLE);
+        }else{
+            holder.text_view_no_data.setVisibility(View.GONE);
+        }
+
         return convertView;
     }
 

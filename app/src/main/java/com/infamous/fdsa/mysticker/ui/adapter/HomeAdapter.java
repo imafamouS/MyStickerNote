@@ -30,7 +30,7 @@ public class HomeAdapter extends BaseAdapter {
     ArrayList<Note> data;
     TextUtils textUtils;
     int type;
-
+    //Hàm khởi tạo
     public HomeAdapter(Context context, ArrayList<Note> data, int type) {
         this.context = context;
         this.data = data;

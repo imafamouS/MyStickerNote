@@ -119,7 +119,7 @@ public class TextUtils {
             return Html.fromHtml(html);
         }
     }
-
+    //Xay dung chuoi duoi dang tag <ul> html
     public String buildLibraryStringForCheckList(ArrayList<ItemCheckList> itemCheckListArrayList) {
 
 

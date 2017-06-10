@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.text.Spanned;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.infamous.fdsa.mysticker.R;
@@ -44,6 +45,7 @@ public class WidgetMySticker extends AppWidgetProvider {
 
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
+
     //Hàm tạo giao diện và dữ liệu cho widget
     static private RemoteViews createRemoteView(Context context, Note note, int appWidgetId) {
         // Construct the RemoteViews object
@@ -83,6 +85,7 @@ public class WidgetMySticker extends AppWidgetProvider {
         views.setOnClickPendingIntent(R.id.layout_parent, pendingIntent);
         return views;
     }
+
     //Hàm cập nhật toàn bộ giao diện và dữ liệu của widget trên màn hình
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -94,9 +97,11 @@ public class WidgetMySticker extends AppWidgetProvider {
             if (noteid == null) {
                 return;
             }
+            Log.d("ONUPDATE", noteid);
             updateAppWidget(context, appWidgetManager, appWidgetId, noteManager.findNoteById(noteid));
         }
     }
+
     //Hàm nhận các intent từ activity
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -112,6 +117,7 @@ public class WidgetMySticker extends AppWidgetProvider {
 
         }
     }
+
     //Hàm thực hiện khi xóa widget (xóa widgetnote trong csdl)
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {

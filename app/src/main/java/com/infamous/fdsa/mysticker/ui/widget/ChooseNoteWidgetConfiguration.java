@@ -93,7 +93,7 @@ public class ChooseNoteWidgetConfiguration extends AppCompatActivity implements 
         sortPopup = new SortPopup();
         sortPopup.setiCallBackFromPopup(this);
 
-        nodataAdapter = new NodataAdapter(this.getApplicationContext());
+        nodataAdapter = new NodataAdapter(this.getApplicationContext(), false);
         //  headerView = getLayoutInflater().inflate(R.layout.item_header_list_add_new_note, list_view, false);
         // relative_layout_add_note_header = (RelativeLayout) headerView.findViewById(R.id.relative_layout_add_note_header);
         // list_view.addHeaderView(headerView);
@@ -101,7 +101,7 @@ public class ChooseNoteWidgetConfiguration extends AppCompatActivity implements 
 
 
         noteManager = NoteManager.getInstance(this.getApplicationContext());
-
+        updateStringSearch("Lọc theo ngày lập");
         searchByType(TypePopup.POPUP_SEACH_DATE, 0);
         currentType = TypePopup.POPUP_SEACH_DATE;
 
@@ -128,6 +128,7 @@ public class ChooseNoteWidgetConfiguration extends AppCompatActivity implements 
         }
     }
 
+    //Hàm thực hiện việc lọc danh sách note theo các kiểu search
     private void searchByType(TypePopup type, int position) {
         String typeSearch = "";
         if (type == TypePopup.POPUP_SEARCH_COLOR) {
@@ -183,6 +184,7 @@ public class ChooseNoteWidgetConfiguration extends AppCompatActivity implements 
         this.text_view_search.setText(str);
     }
 
+    //Khi click vào danh sách note
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -194,7 +196,7 @@ public class ChooseNoteWidgetConfiguration extends AppCompatActivity implements 
                 if (position != 0 && headerView.getVisibility() == View.VISIBLE) {
                     return;
                 } else {
-                    //addNewNoteBuilder.show();
+
                 }
 
             } else {

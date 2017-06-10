@@ -55,6 +55,7 @@ public class NoteDataAccess extends BaseDataAccess {
         super.close();
     }
 
+    //Tạo mới note
     public long createNewNote(Note note) {
         String query = "";
         query = "INSERT INTO " + TABLE_NAME + "(id,title,date_create,last_modify,color_theme,type,complete) VALUES(?,?,?,?,?,?,?)";
@@ -87,7 +88,7 @@ public class NoteDataAccess extends BaseDataAccess {
         }
         return statement.executeInsert();
     }
-
+    //Cập nhật note
     public long updateNote(Note note) {
         String query = "";
         query = "UPDATE  " + TABLE_NAME + " SET title=?,last_modify=?,color_theme=?,complete=? WHERE id=?";
@@ -122,7 +123,7 @@ public class NoteDataAccess extends BaseDataAccess {
         }
         return statement.executeUpdateDelete();
     }
-
+    //Xóa note
     public long deleteNote(Note note) {
         String query = "";
         query = "DELETE FROM  " + TABLE_NAME + " WHERE id=?";
@@ -152,7 +153,7 @@ public class NoteDataAccess extends BaseDataAccess {
         return 1;
 
     }
-
+    //Lấy DS Note
     public ArrayList<Note> findAllNote() {
         ArrayList<Note> list = new ArrayList<>();
 
@@ -186,7 +187,7 @@ public class NoteDataAccess extends BaseDataAccess {
         }
         return list;
     }
-
+    //Lấy note theo id
     public Note findNoteById(String id) {
         Note note = null;
         this.open();
@@ -225,7 +226,7 @@ public class NoteDataAccess extends BaseDataAccess {
         }
         return note;
     }
-
+    //Lấy note theo màu
     public ArrayList<Note> findNoteByColor(String color) {
         ArrayList<Note> list = new ArrayList<>();
 
@@ -259,15 +260,15 @@ public class NoteDataAccess extends BaseDataAccess {
         }
         return list;
     }
-
+    //Lấy note theo ngày lập
     public ArrayList<Note> findNoteByDateCreate() {
         return searchBy(findAllNote(), SORT_DATE_CREATE);
     }
-
+    //Lấy note theo lần chỉnh sửa mới nhất
     public ArrayList<Note> findNoteByLastModify() {
         return searchBy(findAllNote(), SORT_LAST_MODIFY);
     }
-
+    //Lấy note theo kiểm tìm kiếm
     private ArrayList<Note> searchBy(ArrayList<Note> list, String sortType) {
         ArrayList<Note> returnList = new ArrayList<>();
         if (sortType.equalsIgnoreCase(SORT_DATE_CREATE)) {
@@ -298,7 +299,7 @@ public class NoteDataAccess extends BaseDataAccess {
         }
         return returnList;
     }
-
+    //Lấy danh sách widget note
     public ArrayList<WidgetNote> getWidgetNote() {
         ArrayList<WidgetNote> list = new ArrayList<>();
 
@@ -320,7 +321,7 @@ public class NoteDataAccess extends BaseDataAccess {
         }
         return list;
     }
-
+    //Lấy ds widget note theo note id
     public ArrayList<WidgetNote> findWidgetNoteByNoteId(String id) {
         ArrayList<WidgetNote> list = new ArrayList<>();
 
@@ -342,7 +343,7 @@ public class NoteDataAccess extends BaseDataAccess {
         }
         return list;
     }
-
+    //Lấy ds widget note theo widget id
     public WidgetNote findWidgetNoteByWidgetId(String id) {
         WidgetNote widgetNote = new WidgetNote();
 
@@ -365,7 +366,7 @@ public class NoteDataAccess extends BaseDataAccess {
         }
         return widgetNote;
     }
-
+    //thêm mới widget note
     public long insertWidgetNote(WidgetNote widgetNote) {
         String query = "";
         query = "INSERT INTO " + "widget" + "(widgetid,noteid) VALUES(?,?)";
@@ -381,7 +382,7 @@ public class NoteDataAccess extends BaseDataAccess {
         }
         return statement.executeInsert();
     }
-
+    //Xóa widget note
     public long deleteWidgetNote(WidgetNote widgetNote) {
         String query = "";
         query = "DELETE FROM widget WHERE noteid=?";

@@ -366,12 +366,13 @@ public class EditNormalNoteActivity extends BaseSlideActivity implements View.On
             image_view_change_color.performClick();
         }
 
+        //chọn save
         @Override
         public void onSave() {
             EditNormalNoteActivity.this.onSave(currentNote);
 
         }
-
+        //Chọn reset
         @Override
         public void onReset() {
 
